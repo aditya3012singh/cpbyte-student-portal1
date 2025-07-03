@@ -28,12 +28,12 @@ function AttendanceCard() {
 
   return (
     <div className='w-full h-fit p-5 mr-5'>
-      <div className='bg-gray-900 rounded-2xl border border-gray-600 p-4 md:p-8 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-all duration-300'>
+      <div className='bg-[#070b0f] rounded-2xl border border-gray-600 p-4 md:p-8 flex flex-col gap-4 shadow-lg hover:shadow-[0_0_15px_rgba(14,193,231,0.4)] rounded-2xl transition-all duration-300 '>
 
         {/* Header */}
         <div className='flex justify-between items-center'>
           <div className='flex gap-3 items-center'>
-            <div className='w-2 h-8 bg-gradient-to-b from-[#0ec1e7] to-[#7ef9ff] rounded-2xl'></div>
+            <div className='w-2 h-8 bg-gradient-to-b from-[#0ec1e7] to-[#0ec1e7] rounded-2xl'></div>
             <span className='text-white text-2xl font-semibold bg-gradient-to-r from-[#0ec1e7] to-[#7ef9ff] bg-clip-text text-transparent'>
               Attendance History
             </span>
@@ -55,18 +55,23 @@ function AttendanceCard() {
                 cx="50"
                 cy="50"
                 r={circleRadius}
-                stroke="
-#abd4b0"
+                stroke="#1F2937"
 
                 strokeWidth="17"
                 strokeLinecap="butt"
                 fill="none"
               />
+                 <defs>
+                <linearGradient id="grad" x1="1" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#0ec1e7" />
+                  <stop offset="100%" stopColor="#029e14" />
+                </linearGradient>
+              </defs>
               <circle
                 cx="50"
                 cy="50"
                 r={circleRadius}
-                stroke="#029e14"
+                stroke="url(#grad)"
                 strokeWidth="17" 
                 strokeLinecap="butt" 
                 fill="none"
@@ -95,7 +100,7 @@ function AttendanceCard() {
                     key={index}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
-                    className="transition-transform duration-200 hover:scale-[1.03]"
+                    className="transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(14,193,231,0.4)] rounded-2xl"
                   >
                     <DaysCard
                       date={new Date(day.date).toDateString()}
